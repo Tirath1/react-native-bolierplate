@@ -7,7 +7,7 @@ import localStyles from './Home.styles';
 
 export type HomeScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  NAVIGATION_KEYS.HOME
+  'Home'
 >;
 const Home: React.FC<HomeScreenProps> = () => {
   return (

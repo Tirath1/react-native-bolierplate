@@ -44,12 +44,6 @@
     "react-test-renderer": "18.1.0",
     "typescript": "^4.8.3"
   },
-  "husky": {
-    "pre-commit": "eslint ."
-  },
-  "lint-staged": {
-    "**/*.ts": "tsc-files --noEmit"
-  },
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [

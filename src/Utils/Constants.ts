@@ -10,5 +10,17 @@ export const HTTP_STATUS_CODE = {
 
 export const THEME_TYPE = {
   LIGHT: 'light',
-  DARK: 'sark',
+  DARK: 'dark',
+};
+
+export const PLATFORM = {
+  IOS: 'ios',
+  ANDROID: 'android',
+};
+
+interface iKeyboardBehavior {
+  [key: string]: 'padding' | 'height' | 'position' | undefined;
+}
+export const KEYBOARD_BEHAVIOR: iKeyboardBehavior = {
+  PADDING: 'padding',
 };

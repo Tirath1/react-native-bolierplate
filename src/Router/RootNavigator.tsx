@@ -1,20 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../Screen/Home/Home';
 import Login from '../Screen/Login/Login';
 import {RootStackParamList} from './Router.types';
-
+import {darkThemeColor, lightThemeColor} from '../Theme/Colors';
+import {THEME_TYPE} from '../Utils/Constants';
+interface iThemeContext {
+  theme: String;
+  setTheme: Function;
+}
 const RootStack = createStackNavigator<RootStackParamList>();
-
+let defaultThemeValue: iThemeContext = {
+  theme: THEME_TYPE.LIGHT,
+  setTheme: () => {},
+};
+export const ThemeContext = React.createContext(defaultThemeValue);
 const RootNavigator: React.FC<any> = () => {
+  const [theme, setTheme] = useState(THEME_TYPE.LIGHT);
+
+  const themeData = {theme, setTheme};
   return (
-    <NavigationContainer>
-      <RootStack.Navigator>
-        <RootStack.Screen name={'Login'} component={Login} />
-        <RootStack.Screen name={'Home'} component={Home} />
-      </RootStack.Navigator>
-    </NavigationContainer>
+    <ThemeContext.Provider value={themeData}>
+      <NavigationContainer
+        theme={theme === THEME_TYPE.LIGHT ? lightThemeColor : darkThemeColor}>
+        <RootStack.Navigator>
+          <RootStack.Screen name={'Login'} component={Login} />
+          <RootStack.Screen name={'Home'} component={Home} />
+        </RootStack.Navigator>
+      </NavigationContainer>
+    </ThemeContext.Provider>
   );
 };
 

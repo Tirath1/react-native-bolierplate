@@ -4,12 +4,12 @@ import {View, ActivityIndicator} from 'react-native';
 import getLocalStyles from './Loader.styles';
 import {LoaderProps, propTypes} from './Loader.types';
 
-const Loader: FC<LoaderProps> = props => {
+const Loader: FC<LoaderProps> = ({style, loading}) => {
   const {colors} = useTheme();
   let {loaderContainer} = getLocalStyles(colors);
-  if (props) {
+  if (loading) {
     return (
-      <View style={loaderContainer}>
+      <View style={[loaderContainer, style]}>
         <ActivityIndicator />
       </View>
     );

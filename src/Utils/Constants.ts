@@ -24,3 +24,18 @@ interface iKeyboardBehavior {
 export const KEYBOARD_BEHAVIOR: iKeyboardBehavior = {
   PADDING: 'padding',
 };
+
+export const TEXT_SIZE = {
+  H1: 'h1',
+  H2: 'h2',
+  H3: 'h3',
+  H4: 'h4',
+  H5: 'h5',
+  H6: 'h6',
+};
+
+export const TEXT_WEIGHT = {
+  LIGHT: 'light',
+  DARK: 'dark',
+  DEFAULT: 'default',
+};

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const propTypes = {
-  styles: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   loading: PropTypes.bool,
 };
 

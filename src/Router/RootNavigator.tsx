@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import SplashScreen from 'react-native-splash-screen';
 import Home from '../Screen/Home/Home';
 import Login from '../Screen/Login/Login';
 import {RootStackParamList} from './Router.types';
@@ -18,8 +19,12 @@ let defaultThemeValue: iThemeContext = {
 export const ThemeContext = React.createContext(defaultThemeValue);
 const RootNavigator: React.FC<any> = () => {
   const [theme, setTheme] = useState(THEME_TYPE.LIGHT);
-
   const themeData = {theme, setTheme};
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <ThemeContext.Provider value={themeData}>
       <NavigationContainer
